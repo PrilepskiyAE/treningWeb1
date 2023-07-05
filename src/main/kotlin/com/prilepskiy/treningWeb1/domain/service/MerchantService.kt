@@ -27,4 +27,9 @@ class MerchantService(private val repo: MerchantRepository) {
 
         return result
     }
+
+    fun findAllEntity():Iterable<MerchantEntity>{
+
+        return repo.findAll()
+    }
 }

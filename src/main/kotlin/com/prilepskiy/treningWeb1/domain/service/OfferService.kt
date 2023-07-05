@@ -11,47 +11,12 @@ import org.hibernate.internal.util.collections.CollectionHelper.listOf
 import org.springframework.stereotype.Service
 
 @Service
-class OfferService(private val repo:OfferRepository, private val repo2: MerchantRepository,) {
-   private fun save(offer: OfferEntity) {
+class OfferService(private val repo:OfferRepository) {
+    fun save(offer: OfferEntity) {
         repo.save(offer)
     }
 
-    fun initDate(){
-        val temp:MutableList<MerchantEntity> = listOf()
-        val temp2:MutableList<MerchantEntity> = listOf()
-        val temp3:MutableList<MerchantEntity> = listOf()
-        val temp4:MutableList<MerchantEntity> = listOf()
-        repo2.findAll().forEach {
 
-
-            when(it.id){
-                in  1..3->{
-                    temp.add(it)
-                }
-                in 11..13->{
-                    temp2.add(it)
-                }
-                in 21..30->{
-                    temp3.add(it)
-                }
-
-                in 31..40->{
-                    temp4.add(it)
-                }
-                else -> {
-
-                }
-
-            }
-
-        }
-        save(OfferEntity(1,"offer1","2.48$",temp))
-        save(OfferEntity(2,"offer2","3.48$",temp2))
-        save(OfferEntity(3,"offer3","4.48$",temp3))
-        save(OfferEntity(4,"offer4","5.48$",temp4))
-
-
-    }
 
     fun findAll():List<OfferDTO>{
         val result:MutableList<OfferDTO> = listOf()
