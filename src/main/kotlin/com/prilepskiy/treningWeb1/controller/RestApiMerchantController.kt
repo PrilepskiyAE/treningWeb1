@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RestController
 class RestApiMerchantController(private val addMerchantUseCase: AddMerchantUseCase,private val getMerchantListUseCase: GetMerchantListUseCase) {
     init {
 
-//Добавлю изначальную инициализацию
+        for (i in 1..  100) {
+            addMerchantUseCase(MerchantModel(i, "name$i", "category$i"))
+        }
+
     }
 
     @GetMapping

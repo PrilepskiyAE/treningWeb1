@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class AddOfferUseCaseImpl(private val repo: OfferRepository): AddOfferUseCase {
-    override fun invoke(merchant: OfferModel) {
-        repo.save(OfferEntity.from(merchant))
+    override fun invoke(offer: OfferModel) {
+        repo.save(OfferEntity.from(offer))
     }
 }
