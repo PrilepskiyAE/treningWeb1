@@ -1,25 +1,21 @@
 package com.prilepskiy.treningWeb1.controller
 
-import com.prilepskiy.treningWeb1.domain.interactors.AddMerchantUseCase
-import com.prilepskiy.treningWeb1.domain.interactors.GetMerchantListUseCase
-import com.prilepskiy.treningWeb1.domain.model.MerchantModel
+
+import com.prilepskiy.treningWeb1.domain.model.MerchantDTO
+import com.prilepskiy.treningWeb1.domain.service.MerchantService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/merchants")
-class RestApiMerchantController(private val addMerchantUseCase: AddMerchantUseCase,private val getMerchantListUseCase: GetMerchantListUseCase) {
+class RestApiMerchantController(private val service:MerchantService) {
     init {
-
-        for (i in 1..  100) {
-            addMerchantUseCase(MerchantModel(i, "name$i", "category$i"))
-        }
-
+        service.initDate()
     }
 
     @GetMapping
-    fun getMerchants(): List<MerchantModel> {
-        return getMerchantListUseCase()
+    fun getMerchants(): List<MerchantDTO> {
+        return service.findAll()
     }
 }
