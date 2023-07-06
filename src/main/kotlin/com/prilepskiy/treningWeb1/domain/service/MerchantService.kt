@@ -8,7 +8,7 @@ import org.hibernate.internal.util.collections.CollectionHelper.listOf
 import org.springframework.stereotype.Service
 
 @Service
-class MerchantService(private val repo: MerchantRepository) {
+class  MerchantService(private val repo: MerchantRepository) {
   private  fun save(offer: MerchantEntity) {
         repo.save(offer)
     }

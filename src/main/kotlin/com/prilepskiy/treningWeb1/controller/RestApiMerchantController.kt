@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/merchants")
 class RestApiMerchantController(private val service:MerchantService) {
-    init {
+     init {
         service.initDate()
     }
 

@@ -11,9 +11,9 @@ class OfferMerchantService(private val offerService: OfferService ,private val m
         fun initDate(){
         val temp:MutableList<MerchantEntity> = listOf()
         val temp2:MutableList<MerchantEntity> = listOf()
-        val temp3:MutableList<MerchantEntity> = listOf()
+         val temp3:MutableList<MerchantEntity> = listOf()
         val temp4:MutableList<MerchantEntity> = listOf()
-            merchantService.findAllEntity().forEach {
+             merchantService.findAllEntity().forEach {
 
 
             when(it.id){
