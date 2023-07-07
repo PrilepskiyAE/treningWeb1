@@ -9,13 +9,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/merchants")
-class RestApiMerchantController(private val service:MerchantService) {
-     init {
-        service.initDate()
-    }
-
+class RestApiMerchantController(private val merchantService: MerchantService) {
     @GetMapping
-    fun getMerchants(): List<MerchantDTO> {
-        return service.findAll()
-    }
+    fun getMerchants(): List<MerchantDTO> = merchantService.findAll()
+
 }
