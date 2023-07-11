@@ -31,8 +31,8 @@ class OfferMerchantService(private val offerService: OfferService, private val m
     private fun initOffer(vararg merchants: MutableList<Merchant>) {
         var i = 0
         merchants.forEach {
-            val n = ++i
-            save(Offer(n, "offer$n", "$n.48$", it))
+            i= ++i
+            save(Offer(i, "offer$i", "$i.48$", it))
         }
     }
     private fun save(offer: Offer): Offer = offerService.save(offer)
